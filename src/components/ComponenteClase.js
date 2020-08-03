@@ -13,10 +13,12 @@ class Producto extends React.Component {
     };
 
     componentDidMount() {
-        axios.get(`${API_URL}/product`)
+        axios.get(`${API_URL}/products`)
             .then(response => {
-                const productosTraidos = response.data;
+                console.log(response)
 
+                const productosTraidos = response.data.name;
+                console.log(productosTraidos)
                 this.setState({productos: productosTraidos})
             })
             .catch(err => {
