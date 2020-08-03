@@ -1,9 +1,9 @@
-import react from 'react';
+import React from 'react';
 import axios from 'axios';
 import API_URL from '../cfg';
 
 
-class Producto extends react.Component {
+class Producto extends React.Component {
     constructor(props) {
         super(props)
 
@@ -13,9 +13,10 @@ class Producto extends react.Component {
     };
 
     componentDidMount() {
-        axios.get(API_URL/product)
+        axios.get(`${API_URL}/product`)
             .then(response => {
-                const productosTraidos = response.data
+                const productosTraidos = response.data;
+
                 this.setState({productos: productosTraidos})
             })
             .catch(err => {
