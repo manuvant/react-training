@@ -15,11 +15,16 @@ class Producto extends React.Component {
     componentDidMount() {
         axios.get(`${API_URL}/products`)
             .then(response => {
-                console.log(response)
+                console.log(response.data)
 
-                const productosTraidos = response.data.name;
+                const productosTraidos = response.data.map(productoNombre => <li>
+                    {productoNombre.name}
+                </li>);
                 console.log(productosTraidos)
-                this.setState({productos: productosTraidos})
+
+                this.setState({
+                    productos: productosTraidos
+                })
             })
             .catch(err => {
                 console.log(err)
@@ -30,12 +35,10 @@ class Producto extends React.Component {
     render() {
         return (
             <div>
-                {this.state.productos.map(producto => <li>
-                    {producto}
-                </li>)}
+                {this.state.productos}
             </div>
         )
     }
-}
+};
 
 export default Producto

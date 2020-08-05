@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Producto from '../src/components/ComponenteClase'
+import Producto from '../src/components/ComponenteClase';
 
 function App() {
   return (
