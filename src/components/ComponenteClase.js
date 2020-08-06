@@ -80,8 +80,23 @@ class Producto extends React.Component {
                 .catch(err => {
                     console.log(err)
                 })
-
-                this.fetchProducts()
+        axios.get(`${API_URL}/products`)
+                .then(response => {
+                    const productosTraidos = response.data.map(producto => {
+                        return (
+                            <li>
+                                {producto.name}
+                                <button onClick={this.deleteClick()}>
+                                    delete
+                                </button>
+                            </li>
+                        )
+                    })
+                    this.setState({
+                        productos: productosTraidos
+                    })
+                })
+                
     };
 
     render() {
