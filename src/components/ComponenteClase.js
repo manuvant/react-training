@@ -86,7 +86,7 @@ class Producto extends React.Component {
                         return (
                             <li>
                                 {producto.name}
-                                <button onClick={this.deleteClick()}>
+                                <button onClick={this.deleteClick(producto.id)}>
                                     delete
                                 </button>
                             </li>
